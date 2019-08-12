@@ -15,7 +15,7 @@ pipeline {
          }
       }
       stage('Deploy') {
-         when { branch 'master' }
+         when { branch 'master-ci-test' }
          steps {
             echo "Deploy"
             sh 'mvn help:effective-settings -B -V clean deploy -e -s ~/sonatype/settings.xml'
