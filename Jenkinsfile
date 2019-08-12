@@ -10,5 +10,14 @@ pipeline {
             sh 'mvn -DskipTests -B clean verify'
          }
       }
+      stage('Merge') {
+         when {
+             branch 'master-ci-test'
+         }
+         steps {
+            sh 'echo "This is to merge to master-ci-test............"'
+            sh 'cat /home/jenkins/.m2/settings.xml'
+         }
+      }
    }
 }
