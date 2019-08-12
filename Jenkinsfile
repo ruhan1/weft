@@ -19,7 +19,8 @@ pipeline {
             expression { env.BUILD_ID != null } // Merge
          }
          steps {
-            sh 'mvn -B -V clean deploy'
+            echo "Deploy"
+            //sh 'mvn help:effective-settings -B -V clean deploy -e -s ~/sonatype/settings.xml'
          }
       }
    }
