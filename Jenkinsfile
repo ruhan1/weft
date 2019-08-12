@@ -6,6 +6,7 @@ pipeline {
              expression { env.CHANGE_ID != null }  // Pull request
          }
          steps {
+            sh 'printenv'
             sh 'mvn -DskipTests -B clean verify'
          }
       }
