@@ -15,11 +15,10 @@ pipeline {
          }
       }
       stage('Deploy') {
-         when {
-            expression { env.BUILD_ID != null } // Merge
-         }
+         when { branch 'master' }
          steps {
-            sh 'mvn -B -V clean deploy'
+            echo "Deploy"
+            sh 'mvn help:effective-settings -B -V clean deploy -e -s ~/sonatype/settings.xml'
          }
       }
    }
